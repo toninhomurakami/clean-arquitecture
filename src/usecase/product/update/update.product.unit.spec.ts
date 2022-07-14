@@ -10,7 +10,7 @@ const input = {
 
 const MockRepository = () => {
     return {
-      find: jest.fn(),
+      find: jest.fn().mockReturnValue(Promise.resolve(input)),
       findAll: jest.fn(),
       create: jest.fn(),
       update: jest.fn(),
