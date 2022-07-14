@@ -1,12 +1,7 @@
+import ProductFactory from "../../../domain/product/factory/product.factory";
 import UpdateProductUseCase from "./update.product.usecase";
 
-const input = {
-    id: "123",
-    name: "Test Product",
-    description: "Description 1",
-    amount: 3,
-    price: 20
-};
+const input = ProductFactory.create("Teste Product", "Description", 17, 21);
 
 const MockRepository = () => {
     return {
@@ -23,7 +18,13 @@ describe("Unit test update product use case", () => {
         const updateProductUsecase = new UpdateProductUseCase(repository);
         const output = await updateProductUsecase.execute(input);
 
-        expect(output).toEqual(input);
+        expect(output).toEqual({
+          id: expect.any(String),
+          name: input.name,
+          description: input.description,
+          amount: input.amount,
+          price: input.price
+      });
         
     });
 });

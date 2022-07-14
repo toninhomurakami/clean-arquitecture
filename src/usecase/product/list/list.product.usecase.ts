@@ -11,13 +11,14 @@ export class ListProductUseCase {
     async execute(input: InputListProductDto): Promise<OutputListProductDto> {
         const output = await this.repository.findAll();
         
-        return
-        output.map((product) => ({
-            id: product.id,
-            name: product.name,
-            description: product.description,
-            amount: product.amount,
-            price: product.price,
-        }));
+        return {
+            products: output.map((product) => ({
+                            id: product.id,
+                            name: product.name,
+                            description: product.description,
+                            amount: product.amount,
+                            price: product.price,
+            }))
+        };
     }
 }

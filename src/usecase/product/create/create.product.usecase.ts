@@ -22,7 +22,7 @@ export default class CreateProductUseCase {
             name: product.name,
             description: product.description,
             amount: product.amount,
-            price: product.price
+            price: product.price,
         };
     }
 }

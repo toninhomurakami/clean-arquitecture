@@ -30,7 +30,7 @@ describe("Unit test create product use case", () => {
             name: input.name,
             description: input.description,
             amount: input.amount,
-            price: input
+            price: input.price
         });
     });
 });

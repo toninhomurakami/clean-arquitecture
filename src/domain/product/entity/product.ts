@@ -17,19 +17,19 @@ export default class Product implements ProductInterface {
     }
 
     get id(): string {
-       return this.id;
+       return this._id;
     }
     get name(): string {
-       return this.name;
+       return this._name;
     }
     get description(): string {
-       return this.description;
+       return this._description;
     }
     get amount(): number {
-        return this.amount;
+        return this._amount;
     }
     get price(): number {
-        return this.price;
+        return this._price;
     }
 
     changeName(name: string) {
