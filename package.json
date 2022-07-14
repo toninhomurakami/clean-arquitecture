@@ -1,0 +1,35 @@
+{
+  "name": "clean-arquitecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toninhomurakami/clean-arquitecture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toninhomurakami/clean-arquitecture/issues"
+  },
+  "homepage": "https://github.com/toninhomurakami/clean-arquitecture#readme",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^28.1.5",
+    "@types/node": "^18.0.3",
+    "@types/validator": "^13.7.4",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.21.3",
+    "sequelize-typescript": "^2.1.3"
+  }
+}
