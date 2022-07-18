@@ -32,16 +32,25 @@ export default class Product implements ProductInterface {
         return this._price;
     }
 
-    changeName(name: string) {
+    changeBasicInfo(name: string, description: string) {
         this._name = name;
-    }
-    changeDescription(description: string) {
         this._description = description;
+
     }
-    changeAmount(amount: number) {
-        this._amount = amount;
+    incrementStock(amount: number) {
+        this._amount += amount;
     }
+    decrementStock(amount: number) {
+        if (this._amount - amount<0) {
+            throw new Error(`There are not amount enougth for the product ${this._name} to decrement`);
+        }
+        this._amount -= amount;
+    }
+    
     changePrice(price: number) {
+        if (price<=0) {
+            throw new Error(`Invalid price value`);
+        }
         this._price = price;
     }
 }
