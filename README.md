@@ -20,3 +20,5 @@ npm install -D ts-node
 npm install -D tslib @types/node
 
 npm i --save-dev @types/uuid
+
+npm install sqlite3 --save
