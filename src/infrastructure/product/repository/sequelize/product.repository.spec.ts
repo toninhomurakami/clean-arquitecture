@@ -36,7 +36,9 @@ describe ("Test product repository using Sequelize", () => {
         }
 
         const output = await usecase.execute(input);
-        expect(output).toEqual(product);
+        expect(output.id).toEqual(product.id);
+        expect(output.name).toEqual(product.name);
+        expect(output.description).toEqual(product.description);
         
     });
 });
