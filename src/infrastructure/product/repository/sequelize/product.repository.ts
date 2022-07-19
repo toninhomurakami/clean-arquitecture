@@ -47,17 +47,15 @@ export class ProductRepository implements ProductRepositoryInterface {
 
     async findAll(): Promise<Product[]> {
         const productModels = await ProductModel.findAll();
-
-        return
-        productModels.map((productModel) => {
-            new Product(productModel.id,
-                productModel.name,
-                productModel.description,
-                productModel.amount,
-                productModel.price,
-                )
-        });
-
+        
+        const output = 
+            productModels.map(productModel => 
+                new Product(productModel.id,
+                            productModel.name,
+                            productModel.description,
+                            productModel.amount,
+                            productModel.price));
+        return output;
     }
 
 }
