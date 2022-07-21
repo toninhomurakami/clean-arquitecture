@@ -22,3 +22,12 @@ npm install -D tslib @types/node
 npm i --save-dev @types/uuid
 
 npm install sqlite3 --save
+
+- Passos na continuação, Desafio 2
+
+npm install express @types/express dotenv --save
+npm install nodemon --save
+npm install -D supertest @types/supertest --save
+
+npm run dev - Rodar server local com nodenan. Vide package.json/scripts
+npm test - Rodar todos os testes em CL

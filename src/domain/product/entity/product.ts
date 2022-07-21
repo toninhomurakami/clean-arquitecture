@@ -1,3 +1,4 @@
+import { validate } from "uuid";
 import ProductInterface from "./product.interface";
 
 export default class Product implements ProductInterface {
@@ -14,6 +15,7 @@ export default class Product implements ProductInterface {
         this._description = description;
         this._amount = amount;
         this._price = price;
+        this.validate();
     }
 
     get id(): string {
@@ -52,5 +54,15 @@ export default class Product implements ProductInterface {
             throw new Error(`Invalid price value`);
         }
         this._price = price;
+    }
+
+    validate() {
+        if (this._id == undefined ||
+            this._name == undefined ||
+            this._description == undefined ||
+            this._amount == undefined ||
+            this._price == undefined) {
+            throw new Error("Product with invalid arguments");
+        }
     }
 }
