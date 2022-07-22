@@ -1,26 +1,30 @@
+import supertest from "supertest";
 import { validate } from "uuid";
+import Entity from "../../@shared/entity/entity.abstract";
+import NotificationError from "../../@shared/notification/notification.error";
 import ProductInterface from "./product.interface";
 
-export default class Product implements ProductInterface {
+export default class Product extends Entity implements ProductInterface {
 
-    private _id: string;
     private _name: string;
     private _description: string;
     private _amount: number;
     private _price: number;
 
     constructor(id: string, name: string, description: string, amount: number, price: number) {
-        this._id = id;
+        super();
+        super._id = id;
         this._name = name;
         this._description = description;
         this._amount = amount;
         this._price = price;
         this.validate();
+
+        if (this.notification.hasErros()) {
+            throw new NotificationError(this.notification.getErrors());
+        }
     }
 
-    get id(): string {
-       return this._id;
-    }
     get name(): string {
        return this._name;
     }
@@ -57,12 +61,21 @@ export default class Product implements ProductInterface {
     }
 
     validate() {
-        if (this._id == undefined ||
-            this._name == undefined ||
-            this._description == undefined ||
-            this._amount == undefined ||
-            this._price == undefined) {
-            throw new Error("Product with invalid arguments");
+        const context = "product";
+        if (this.id == undefined || this.id == "") {
+            this.notification.addError({context: context, message: "ID has invalid value"});
+        }
+        if (this._name == undefined || this._name == "") {
+            this.notification.addError({context: context, message: "Name has invalid value"});
+        }
+        if (this._description == undefined || this._description == "") {
+            this.notification.addError({context: context, message: "Description has invalid value"});
+        }
+        if (this._amount == undefined || this._amount <0 ) {
+            this.notification.addError({context: context, message: "Amount has invalid value"});
+        }
+        if (this._price == undefined || this._price <0 ) {
+            this.notification.addError({context: context, message: "Price has invalid value"});
         }
     }
 }
