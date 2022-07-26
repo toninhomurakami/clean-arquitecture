@@ -31,3 +31,6 @@ npm install -D supertest @types/supertest --save
 
 npm run dev - Rodar server local com nodenan. Vide package.json/scripts
 npm test - Rodar todos os testes em CL
+
+- Passos na continuação, Desafio 4
+npm install -S yup

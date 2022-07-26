@@ -2,6 +2,7 @@ import supertest from "supertest";
 import { validate } from "uuid";
 import Entity from "../../@shared/entity/entity.abstract";
 import NotificationError from "../../@shared/notification/notification.error";
+import ProductValidatorFactory from "../factory/product.validator.factory";
 import ProductInterface from "./product.interface";
 
 export default class Product extends Entity implements ProductInterface {
@@ -61,6 +62,10 @@ export default class Product extends Entity implements ProductInterface {
     }
 
     validate() {
+        ProductValidatorFactory.create().validate(this);
+
+        /** Validação abaixo utilizada anteriormente no inicio do desafio. */ 
+        /*
         const context = "product";
         if (this.id == undefined || this.id == "") {
             this.notification.addError({context: context, message: "ID has invalid value"});
@@ -77,5 +82,6 @@ export default class Product extends Entity implements ProductInterface {
         if (this._price == undefined || this._price <0 ) {
             this.notification.addError({context: context, message: "Price has invalid value"});
         }
+        */
     }
 }
